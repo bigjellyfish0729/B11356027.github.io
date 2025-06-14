@@ -1,11 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>我的第一個網頁</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>鬼滅之刃介紹網頁</title>
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+    }
+
+    header {
+      background: #1e1e1e;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #333;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    nav button:hover {
+      background: #555;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav button {
+        text-align: center;
+        padding: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>歡迎來到我的網站！</h1>
-    <p>這是一段簡單的 HTML 範例。</p>
+  <header>
+    <h1>鬼滅之刃介紹網頁</h1>
+  </header>
+
+  <nav>
+    <button onclick="showPage('home')">🏠 首頁</button>
+    <button onclick="showPage('characters')">👤 角色介紹</button>
+    <button onclick="showPage('breathing')">🌬️ 呼吸法</button>
+  </nav>
+
+  <section id="home" class="active">
+    <h2>關於《鬼滅之刃》</h2>
+    <p>《鬼滅之刃》是一部由吾峠呼世晴創作的日本漫畫，描寫炭治郎為了救回變成鬼的妹妹而踏上狩鬼之路，成為鬼殺隊劍士的故事。</p>
+  </section>
+
+  <section id="characters">
+    <h2>主要角色</h2>
+    <ul>
+      <li><strong>炭治郎</strong>：主角，溫柔堅毅，使用水之呼吸與日之呼吸。</li>
+      <li><strong>禰豆子</strong>：炭治郎的妹妹，變成鬼後依然保有人性。</li>
+      <li><strong>善逸</strong>：膽小但擁有強大雷之呼吸力量。</li>
+      <li><strong>伊之助</strong>：野性劍士，使用獸之呼吸。</li>
+    </ul>
+  </section>
+
+  <section id="breathing">
+    <h2>呼吸法介紹</h2>
+    <p>鬼殺隊劍士透過特殊的呼吸法來強化身體對抗鬼怪，各種呼吸流派源自「日之呼吸」：</p>
+    <ul>
+      <li><strong>水之呼吸</strong>：流暢優雅，強調連擊。</li>
+      <li><strong>火之神神樂（日之呼吸）</strong>：最古老、最強的呼吸。</li>
+      <li><strong>雷之呼吸</strong>：速度為主，招式迅猛。</li>
+      <li><strong>獸之呼吸</strong>：自創風格，狂野無章但威力驚人。</li>
+    </ul>
+  </section>
+
+  <script>
+    function showPage(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
