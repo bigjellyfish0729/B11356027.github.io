@@ -2,145 +2,179 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>葬送的芙莉蓮</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>葬送的芙莉蓮 作品介紹</title>
   <style>
+    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: 'Noto Sans TC', sans-serif;
-      background: url('https://i.imgur.com/NFqX4H7.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #f5f5f5;
+      margin: 0; padding: 0;
+      font-family: "Noto Sans TC", sans-serif;
+      background: linear-gradient(135deg, #d9e8fb 0%, #f0f6fc 100%);
+      color: #2c3e50;
     }
-
     header {
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 1rem;
+      background-color: #2a4d69;
+      color: #f0f6fc;
+      padding: 20px;
       text-align: center;
-      backdrop-filter: blur(4px);
+      font-size: 2rem;
+      font-weight: bold;
     }
-
     nav {
-      background: rgba(0, 0, 0, 0.6);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(8px);
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+      background-color: #4b86b4;
       display: flex;
       justify-content: center;
+      border-bottom: 3px solid #2a4d69;
       flex-wrap: wrap;
     }
-
-    nav li {
-      margin: 0;
-    }
-
     nav a {
-      display: block;
-      color: white;
+      padding: 15px 30px;
+      color: #f0f6fc;
       text-decoration: none;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      transition: background 0.3s;
+      font-weight: bold;
+      transition: background-color 0.3s;
     }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
+    nav a:hover, nav a.active {
+      background-color: #2a4d69;
     }
-
+    main {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #f0f6fc;
+    }
     section {
       display: none;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 12px;
-      margin: 2rem auto;
-      width: 90%;
-      max-width: 800px;
-      animation: fadeIn 1s ease-in;
+      animation: fadeIn 0.5s ease forwards;
     }
-
     section.active {
       display: block;
     }
-
-    img.character {
+    h2 {
+      border-bottom: 2px solid #2a4d69;
+      padding-bottom: 8px;
+    }
+    .content-img {
       max-width: 100%;
       border-radius: 10px;
-      margin: 1rem 0;
-      transition: transform 0.5s ease;
+      margin-top: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
-    img.character:hover {
-      transform: scale(1.05);
+    .character-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-
+    .character-card {
+      flex: 1 1 45%;
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .character-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    footer {
+      background-color: #2a4d69;
+      color: #f0f6fc;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
-
-    @media (max-width: 768px) {
-      nav ul {
+    @media (max-width: 700px) {
+      .character-list {
         flex-direction: column;
-      }
-
-      nav a {
-        text-align: center;
-        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>葬送的芙莉蓮</h1>
-    <p>魔法與時間交織的故事</p>
-  </header>
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="#" onclick="showPage('home')">首頁</a></li>
-      <li><a href="#" onclick="showPage('characters')">角色介紹</a></li>
-      <li><a href="#" onclick="showPage('magic')">魔法與冒險</a></li>
-    </ul>
-  </nav>
+<header>葬送的芙莉蓮 作品介紹</header>
 
-  <section id="home" class="active">
-    <h2>故事簡介</h2>
-    <p>《葬送的芙莉蓮》講述精靈魔法使芙莉蓮在勇者死後展開的旅程。這是一場關於時間、告別與情感的奇幻冒險。</p>
-    <img src="https://i.imgur.com/9UgEdFi.jpg" class="character" alt="芙莉蓮主視覺">
+<nav>
+  <a href="#intro" class="active">作品介紹</a>
+  <a href="#story">故事背景</a>
+  <a href="#characters">角色介紹</a>
+  <a href="#author">作者介紹</a>
+</nav>
+
+<main>
+  <!-- 作品介紹 -->
+  <section id="intro" class="active">
+    <h2>作品介紹</h2>
+    <p>《葬送的芙莉蓮》是一部講述時間、回憶與人生的奇幻漫畫。主角芙莉蓮在擊敗魔王後，踏上理解「人類情感」的旅程，展開一段充滿哲思與成長的冒險。</p>
+    <img src="https://i.imgur.com/YOZKDxC.png" class="content-img" alt="芙莉蓮" />
   </section>
 
+  <!-- 故事背景 -->
+  <section id="story">
+    <h2>故事背景</h2>
+    <p>勇者團成功打倒魔王，世界重獲和平。然而壽命極長的魔法使芙莉蓮，卻在同伴離世後，才意識到自己從未真正了解他們……</p>
+    <img src="https://i.imgur.com/Ql6J8bw.jpg" class="content-img" alt="背景圖" />
+  </section>
+
+  <!-- 角色介紹 -->
   <section id="characters">
-    <h2>主要角色</h2>
-    <ul>
-      <li>芙莉蓮：千年精靈魔法使，外表冷靜，內心細膩。</li>
-      <li>費倫：芙莉蓮的徒弟，充滿熱情與責任感。</li>
-      <li>修塔爾克：劍士，實力堅強，沉默寡言。</li>
-    </ul>
-    <img src="https://i.imgur.com/DKNkLFx.jpg" class="character" alt="芙莉蓮與夥伴們">
+    <h2>角色介紹</h2>
+    <div class="character-list">
+      <div class="character-card">
+        <img src="https://i.imgur.com/YOZKDxC.png" alt="芙莉蓮">
+        <h3>芙莉蓮</h3>
+        <p>長壽的魔法使，個性冷靜，旅途中的她開始試圖理解「情感」。</p>
+      </div>
+      <div class="character-card">
+        <img src="https://i.imgur.com/6EvxpLh.png" alt="費倫">
+        <h3>費倫</h3>
+        <p>芙莉蓮的學生，聰明伶俐的年輕魔法使，擁有堅強的意志。</p>
+      </div>
+    </div>
   </section>
 
-  <section id="magic">
-    <h2>魔法與冒險</h2>
-    <p>芙莉蓮擅長各式魔法，從攻擊魔法到生活魔法應有盡有，她的旅途充滿了探索未知與對過去的省思。</p>
-    <img src="https://i.imgur.com/hyW4EGg.jpg" class="character" alt="芙莉蓮施法場景">
+  <!-- 作者介紹 -->
+  <section id="author">
+    <h2>作者介紹</h2>
+    <p>原作：山田鐘人  
+       作畫：アベツカサ  
+       本作由兩位漫畫家合作打造，以細膩情感與沉靜敘事風格聞名。</p>
+    <p>作品首刊於《週刊少年Sunday》，迅速累積人氣，獲得多項漫畫獎項肯定。</p>
   </section>
+</main>
 
-  <script>
-    function showPage(id) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach(s => s.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-  </script>
+<footer>© 2025 葬送的芙莉蓮 介紹網站</footer>
+
+<script>
+  // 切換顯示區塊
+  const navLinks = document.querySelectorAll("nav a");
+  const sections = document.querySelectorAll("main section");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      navLinks.forEach(a => a.classList.remove("active"));
+      link.classList.add("active");
+
+      const id = link.getAttribute("href").substring(1);
+      sections.forEach(sec => {
+        if (sec.id === id) {
+          sec.classList.add("active");
+        } else {
+          sec.classList.remove("active");
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+</script>
+
 </body>
 </html>
+
