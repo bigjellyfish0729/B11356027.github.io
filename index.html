@@ -2,122 +2,137 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>葬送的芙莉蓮</title>
   <style>
     body {
-    margin: 0;
-    font-family: 'Noto Sans TC', sans-serif;
-    background: url('https://i.imgur.com/NFqX4H7.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #f5f5f5;
-  }
+      margin: 0;
+      font-family: 'Noto Sans TC', sans-serif;
+      background: url('https://i.imgur.com/NFqX4H7.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f5f5f5;
+    }
 
-  header {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    backdrop-filter: blur(4px);
-  }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
 
-  nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: rgba(0, 0, 0, 0.7);
-  }
-
-  nav button {
-    background: none;
-    border: none;
-    color: white;
-    padding: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-
-  nav button:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  section {
-    display: none;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
-    margin: 2rem auto;
-    width: 90%;
-    max-width: 800px;
-    animation: fadeIn 1s ease-in;
-  }
-
-  section.active {
-    display: block;
-  }
-
-  img.character {
-    max-width: 200px;
-    border-radius: 10px;
-    margin: 1rem 0;
-    transition: transform 0.5s ease;
-  }
-
-  img.character:hover {
-    transform: scale(1.1);
-  }
-
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-
-  @media (max-width: 768px) {
     nav {
-      flex-direction: column;
+      background: rgba(0, 0, 0, 0.6);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      margin: 0;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 800px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    section.active {
+      display: block;
     }
 
     img.character {
       max-width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+      transition: transform 0.5s ease;
     }
-  }
+
+    img.character:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav a {
+        text-align: center;
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>葬送的芙莉蓮</h1>
+    <p>魔法與時間交織的故事</p>
   </header>
 
-  <nav>
-    <button onclick="showPage('home')">🌌 首頁</button>
-    <button onclick="showPage('characters')">🧙‍♀️ 角色介紹</button>
-    <button onclick="showPage('magic')">✨ 魔法與冒險</button>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#" onclick="showPage('home')">首頁</a></li>
+      <li><a href="#" onclick="showPage('characters')">角色介紹</a></li>
+      <li><a href="#" onclick="showPage('magic')">魔法與冒險</a></li>
+    </ul>
   </nav>
 
   <section id="home" class="active">
-    <h2>作品簡介</h2>
-    <p>《葬送的芙莉蓮》講述一位長生種魔法使——芙莉蓮，在英雄夥伴逝去後，展開的自我尋找與懺悔之旅。這是一部溫柔描繪「時間、回憶與情感」的後日談奇幻作品。</p>
-    <img src="https://i.imgur.com/kKMv9U4.jpg" alt="芙莉蓮與勇者們" style="max-width:100%; border-radius:12px; margin-top:1rem;">
+    <h2>故事簡介</h2>
+    <p>《葬送的芙莉蓮》講述精靈魔法使芙莉蓮在勇者死後展開的旅程。這是一場關於時間、告別與情感的奇幻冒險。</p>
+    <img src="https://i.imgur.com/9UgEdFi.jpg" class="character" alt="芙莉蓮主視覺">
   </section>
 
   <section id="characters">
-    <h2>主要角色介紹</h2>
-    <p><strong>芙莉蓮：</strong>壽命長達千年的精靈魔法使，雖然表面冷淡，但內心細膩且逐漸學會感情。</p>
-    <img class="character" src="https://i.imgur.com/1EDj9kB.png" alt="芙莉蓮" />
-    
-    <p><strong>費倫：</strong>芙莉蓮的徒弟，勤奮又聰明，擁有堅定的意志。</p>
-    <img class="character" src="https://i.imgur.com/dHCU4IW.png" alt="費倫" />
-
-    <p><strong>修塔爾克：</strong>戰士，擁有超強實力但個性溫吞，是旅途中的守護者。</p>
-    <img class="character" src="https://i.imgur.com/SB3WiVv.png" alt="修塔爾克" />
+    <h2>主要角色</h2>
+    <ul>
+      <li>芙莉蓮：千年精靈魔法使，外表冷靜，內心細膩。</li>
+      <li>費倫：芙莉蓮的徒弟，充滿熱情與責任感。</li>
+      <li>修塔爾克：劍士，實力堅強，沉默寡言。</li>
+    </ul>
+    <img src="https://i.imgur.com/DKNkLFx.jpg" class="character" alt="芙莉蓮與夥伴們">
   </section>
 
   <section id="magic">
     <h2>魔法與冒險</h2>
-    <p>芙莉蓮擁有龐大的魔法知識與經驗，她一邊收集稀有魔法、一邊走訪過去的足跡。在旅程中，她逐步理解人類的情感與短暫的生命。</p>
-    <div style="margin-top: 2rem;">
-      <img src="https://i.imgur.com/v1N6I5u.gif" alt="魔法動畫" style="max-width:100%; border-radius:12px;">
-    </div>
+    <p>芙莉蓮擅長各式魔法，從攻擊魔法到生活魔法應有盡有，她的旅途充滿了探索未知與對過去的省思。</p>
+    <img src="https://i.imgur.com/hyW4EGg.jpg" class="character" alt="芙莉蓮施法場景">
   </section>
 
   <script>
