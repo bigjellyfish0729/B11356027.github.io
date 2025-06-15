@@ -91,6 +91,34 @@
       .character-list {
         flex-direction: column;
       }
+      .card-links {
+        flex-direction: column;
+      }
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+    .card-links {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1 1 30%;
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: #d9e8fb;
     }
   </style>
 </head>
@@ -111,6 +139,13 @@
     <h2>作品介紹</h2>
     <p>《葬送的芙莉蓮》是一部講述時間、回憶與人生的奇幻漫畫。主角芙莉蓮在擊敗魔王後，踏上理解「人類情感」的旅程，展開一段充滿哲思與成長的冒險。</p>
     <img src="001frieren.jpg" class="content-img" alt="芙莉蓮" />
+
+    <!-- 小卡片連結 -->
+    <div class="card-links">
+      <div class="card" data-target="story">故事背景</div>
+      <div class="card" data-target="characters">角色介紹</div>
+      <div class="card" data-target="author">作者介紹</div>
+    </div>
   </section>
 
   <!-- 故事背景 -->
@@ -150,31 +185,37 @@
 <footer>© 2025 葬送的芙莉蓮 介紹網站</footer>
 
 <script>
-  // 切換顯示區塊
+  // 導覽列切換功能
   const navLinks = document.querySelectorAll("nav a");
   const sections = document.querySelectorAll("main section");
 
   navLinks.forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
-
       navLinks.forEach(a => a.classList.remove("active"));
       link.classList.add("active");
 
       const id = link.getAttribute("href").substring(1);
       sections.forEach(sec => {
+        sec.classList.remove("active");
         if (sec.id === id) {
           sec.classList.add("active");
-        } else {
-          sec.classList.remove("active");
         }
       });
-
       window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+
+  // 小卡片點擊觸發對應區塊
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const targetId = card.getAttribute("data-target");
+      const targetLink = document.querySelector(`nav a[href="#${targetId}"]`);
+      if (targetLink) targetLink.click();
     });
   });
 </script>
 
 </body>
 </html>
-
